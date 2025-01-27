@@ -1,0 +1,57 @@
+Comandos práctica 2
+
+Ip link show
+sudo dhclient  
+sudo dhclient -r
+sudo dhclient
+nmcli con show
+sudo nmcli con mod "<nombre-conexion>" ipv4.method auto
+sudo nmcli con up "<nombre-conexion>"
+sudo nano /etc/network/interfaces
+auto <interfaz>
+iface <interfaz> inet dhcp
+sudo systemctl restart networking
+ip addr show <interfaz>
+ping -c 4 google.com
+ip link show
+sudo ip addr add 192.168.1.50/24 dev eth0
+ip route
+sudo ip route add default via
+ip addr show
+ip route show
+nmcli connection show
+nmcli connection modify "NombreConexión" ipv4.addresses 192.168.1.50/24 ipv4.gateway ………… ipv4.dns 8.8.8.8 ipv4.method manual
+nmcli connection up "NombreConexión"
+nmcli connection show "NombreConexión"
+sudo nano /etc/network/interfaces
+ip addr show
+sudo ifconfig eth0 192.168.1.50 netmask 255.255.255.0
+sudo route add default gw 192.168.1.1 eth0
+ifconfig
+route -n
+sudo nano /etc/resolv.conf
+
+
+Comandos práctica 3
+
+sudo useradd -m usuario
+sudo passwd usuario
+sudo groupadd grupo
+sudo usermod -aG grupo usuario
+sudo userdel -r usuario
+sudo groupdel
+ls
+cd
+groups
+
+
+Comandos práctica 4
+
+Mkdir
+Cd
+Vi
+chmod 700
+chmod 070
+rm -r
+ls
+cd
