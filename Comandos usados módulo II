@@ -1,0 +1,21 @@
+Comandos usados práctica 1
+
+Sudo apt update  
+Sudo apt upgrade
+cat /etc/apt/sources.list
+apt search 
+sudo apt install 
+sudo apt purge 
+sudo apt-get 
+sudo apt autoclean
+****************************
+
+Comandos usados práctica 2
+
+Crontab -e
+0 23 * * * sudo apt update && sudo apt upgrade 
+ sudo crontab -l
+0 3 * * 0 sudo reboot 
+echo "sudo rm -rf /tmp/*" | at now + 1 minute
+atq
+ls -la /tmp 
