@@ -1,0 +1,54 @@
+Comandos usados en la práctica #1
+
+sudo su
+sudo nano /etc/default/grub
+sudo update-grub
+sudo reboot
+mount -o remount rw /
+mount
+passwd root 
+**********************************************************
+
+Comandos usados en la práctica #2
+
+nano backup_home.sh
+FECHA_HORA=$(date +"%d-%m-%Y:%H:%M")
+CARPETA_ORIGEN="/home/lisad$(whoami)"
+ARCHIVO_BACKUP="/tmp/backup_home_$FECHA_HORA.tar.gz"
+tar -czvf "$ARCHIVO_BACKUP" "$CARPETA_ORIGEN"
+f [ $? -eq 0 ]; then
+    echo "Backup creado correctamente en: $ARCHIVO_BACKUP"
+else
+    echo "Error al crear el backup."
+fi
+chmod +x backup_home.sh
+./backup_home.sh
+ls -l /tmp/backup_home_*.tar.gz
+nano script_ifconfig.sh
+echo
+read 
+ifconfig > ~/Escritorio/"$nombre_archivo".txt
+echo "El archivo $nombre_archivo.txt ha sido creado en el Escritorio."
+chmod +x script_ifconfig.sh.
+./script_ifconfig.sh
+cd
+ls
+cat 
+*********************************************************
+
+Comandos usados en la práctica #3
+
+ip a
+ping
+which ssh
+which sshd
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+ssh lisad@192.168.0.122
+ssh-keygen -t rsa -b 4096 -f "C:\Users\Lisa Marie Duran\.ssh\id_rsa"
+scp "C:\Users\Lisa Marie Duran\.ssh\id_rsa.pub" lisad@192.168.0.122:/home/lisad/.ssh/
+at ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+rm ~/.ssh/id_rsa.pub
+
