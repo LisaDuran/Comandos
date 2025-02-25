@@ -1,0 +1,64 @@
+Comandos usados en la práctica #1
+
+sudo apt update
+sudo apt install apache2
+sudo service apache2 start
+sudo systemctl enable apache2
+sudo service apache2 status
+Cd /var/www/html
+Sudo rm -rf  *
+Sudo nano holis.html
+sudo systemctl restart apache2
+sudo nano /etc/apache2/sites-available/lisad.conf
+sudo a2ensite lisad.conf
+sudo nano /etc/hosts
+127.0.0.1    lisad.local
+sudo systemctl restart apache2
+sudo mkdir  /var/www/html/lisaduran
+Sudo nano holis2.html
+sudo nano /etc/apache2/sites-available/lisaduran.conf
+sudo a2ensite lisaduran.conf
+sudo nano /etc/apache2/ports.conf
+sudo nano /etc/hosts
+
+************************************************************************************
+
+Comandos usados en la práctica #2
+
+sudo apt install postfix -y
+sudo service postfix start
+sudo systemctl enable postfix 
+sudo service postfix status 
+sudo apt install mailutils
+sudo nano /etc/postfix/main.cf
+sudo nano /etc/postfix/sasl_passwd
+sudo chmod 600 /etc/postfix/sasl_passwd
+sudo postmap /etc/postfix/sasl_passwd
+sudo apt install ufw -y
+ufw --version
+sudo ufw enable
+sudo ufw allow 587
+sudo ufw status
+echo "Lisa Duran, 2024-1458" | mail -s "MambruSeFueALaGuerra" os3conadrian@gmail.com
+mailq
+
+**************************************************************************************
+
+Comandos usados en la práctica #3
+
+sudo apt update
+sudo apt install cups -y
+sudo ap install cups-pdf -y
+sudo service cups start
+sudo systemctl enable cups
+sudo service cups status
+sudo apt install ufw -y
+sudo ufw enable
+sudo nano /etc/cups/cupsd.conf
+sudo ufw allow 631/tcp
+sudo ufw allow ssh
+sudo ufw status
+sudo cupsctl --remote-admin --remote-any --share-printers
+sudo usermod -aG lpadmin $(whoami)
+sudo systemctl restart cups
+ip a 
