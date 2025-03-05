@@ -1,0 +1,49 @@
+Comandos usados en la práctica 1:
+
+sudo apt update
+sudo apt install rsync -y
+sudo apt install ssh -y
+ssh-keygen -t rsa -b 4096
+ssh-copy-id lisad@192.168.0.110
+ssh lisad@192.168.0.110
+mkdir Ejemplo
+cd Ejemplo
+touch Ejemplo{1..100}
+ls
+rsync -avz  /home/lisad/Ejemplo lisad@192.168.0.110:/home/lisad
+nano /home/usuario/sync.sh
+rsync -avz /home/usuario/Ejemplo lisad@192.168.0.110:/home/lisad
+chmod +x /home/usuario/sync.sh
+crontab -e
+touch /home/usuario/Ejemplo/archivo_prueba.txt
+ls -l /home/usuario/Ejemplo/
+*******************************************************************************
+
+Comandos usados en la práctica 2:
+
+ip a
+sudo nano /etc/network/interfaces
+sudo systemctl restart networking
+sudo apt update
+sudo apt install heartbeat -y
+sudo nano /etc/ha.d/ha.cf
+sudo nano /etc/ha.d/authkeys
+sudo chmod 600 /etc/ha.d/authkeys
+sudo nano /etc/ha.d/haresources
+sudo systemctl restart heartbeat
+sudo systemctl enable heartbeat
+ip a | grep 192.168.0.200
+ping 192.168.0.200
+sudo reboot
+********************************************************************************
+
+Comandos usados en la práctica 3:
+
+sudo apt update 
+sudo apt install apache2 -y
+echo "<h1>Este es Server1</h1>" | sudo tee /var/www/html/index.html
+echo "<h1>Este es Server2</h1>" | sudo tee /var/www/html/index.html
+sudo systemctl restart apache2
+sudo apt install keepalived -y
+sudo nano /etc/keepalived/keepalived.conf
+sudo systemctl restart keepalived
