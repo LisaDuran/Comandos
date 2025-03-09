@@ -1,0 +1,68 @@
+Comandos usados en la práctica #1
+
+sudo apt-get update
+sudo apt-get install gnupg2
+mkdir mi_directorio
+cd mi_directorio
+echo "Este es un archivo de prueba" > archivo.txt
+gpg2 -c archivo.txt
+cat archivo.txt.gpg
+rm archivo.txt
+gpg --decrypt  archivo.txt.gpg > archivo.txt
+cat archivo.txt
+**********************************************************************
+
+Comandos usados en la práctica #2
+
+sudo apt update
+sudo apt install apache2 vsftpd openssh-server
+sudo systemctl start apache2
+sudo systemctl start vsftpd
+sudo systemctl start ssh
+sudo systemctl enable apache2
+sudo systemctl enable vsftpd
+sudo systemctl enable ssh
+sudo systemctl status apache2
+sudo systemctl status vsftpd
+sudo systemctl status ssh
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+sudo iptables -A INPUT -p tcp --dport 21 -j DROP
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+sudo iptables -D INPUT -p tcp --dport 80 -j DROP
+sudo iptables -D INPUT -p tcp --dport 21 -j DROP
+sudo iptables -D INPUT -p tcp --dport 22 -j DROP
+sudo iptables -L
+sudo apt install ufw
+sudo ufw deny 80/tcp
+sudo ufw deny 21/tcp
+sudo ufw deny 22/tcp
+sudo ufw status
+sudo ufw allow 80/tcp
+sudo ufw allow 21/tcp
+sudo ufw allow 22/tcp
+sudo ufw status
+**********************************************************************
+
+Comandos usados en la práctica #3
+
+sudo apt update 
+sudo apt install suricata -y
+Cd /var/lib/suricata 
+ls 
+cd rules 
+sudo nano REGLAS
+sudo nano /etc/suricata/suricata.yaml
+sudo suricata -c /etc/suricata/suricata.yaml -i eth0
+sudo tail -f /var/log/suricata/fast.log
+******************************************************************
+
+Comandos usados en la práctica #4
+
+sudo apt update
+sudo apt install libpam-google-authenticator
+google-authenticator
+sudo nano /etc/pam.d/sshd
+auth required pam_google_authenticator.so
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart sshd.service
+ssh lisad@192.168.0.119
