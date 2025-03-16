@@ -1,0 +1,57 @@
+Comandos usados en la práctica #1
+
+sudo apt update
+sudo apt install nfs-kernel-server
+mkdir /OS3
+for i in {1..100}; do touch /OS3/Adrian$i.txt; done
+ls /OS3
+sudo chown -R nobody:nogroup /OS3
+sudo chmod -R 755 /OS3
+sudo nano /etc/exports
+/OS3 192.168.0.0/24(rw,sync,no_subtree_check)
+sudo exportfs -a
+sudo systemctl restart nfs-kernel-server
+sudo apt update
+sudo apt install nfs-common
+sudo mount 192.168.0.119:/OS3 /mnt
+sudo nano /etc/fstab
+192.168.0.119: /OS3 /mnt nfs defaults 0 0
+ls /mnt
+
+**************************************************************
+
+Comandos usados en la práctica #2
+
+sudo apt update
+apt install samba krb5-user winbind libpam-winbind libnss-winbind -y
+sudo systemctl start smbd
+sudo systemctl enable smbd
+sudo mkdir -p /srv/samba/shared
+sudo groupadd sambashare
+sudo useradd -M -d /srv/samba/shared -s /usr/sbin/nologin -G sambashare adrian
+sudo smbpasswd -a adrian
+sudo chown -R :sambashare /srv/samba/shared
+sudo chmod -R 2070 /srv/samba/shared
+[shared]
+   path = /srv/samba/shared
+   valid users = adrian
+   guest ok = no
+   writable = yes
+   browsable = yes
+sudo systemctl restart smbd
+for i in {1..100}; do touch /srv/samba/shared/adrian$i; done
+ls /srv/samba/shared
+cat /srv/samba/shared/adrian99
+
+***************************************************************************
+
+
+
+
+
+
+
+
+
+
+
