@@ -45,13 +45,18 @@ cat /srv/samba/shared/adrian99
 
 ***************************************************************************
 
+Comandos usados en la práctia #3
 
-
-
-
-
-
-
-
-
-
+apt update && apt install samba krb5-user winbind libpam-winbind libnss-winbind -y
+mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
+samba-tool domain provision --use-rfc2307 --interactive
+nano /etc/samba/smb.conf
+nano /etc/resolv.conf
+systemctl restart samba-ad-dc
+systemctl enable samba-ad-dc
+systemctl status samba-ad-dc
+nano /etc/krb5.conf
+kinit administrator
+klist
+samba-tool user add Lanegracubana --given-name="La negra" --surname="cubana" --password="20241458"
+samba-tool user list
