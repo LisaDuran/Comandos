@@ -1,0 +1,65 @@
+Comandos usados en la práctica #1:
+
+sudo apt update 
+sudo apt install wget perl -y
+wget https://www.webmin.com/download/deb/webmin-current.deb
+sudo dpkg -i webmin-current.deb
+sudo apt --fix-broken install -y
+sudo systemctl status webmin
+sudo systemctl start webmin
+*************************************************************************
+
+Comandos usados en la práctica #2:
+
+wget https://releases.hashicorp.com/terraform/1.11.3/terraform_1.11.3_linux_amd64.zip
+unzip terraform_1.11.3_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+terraform -v
+mkdir terraform-do
+cd terraform-do
+ssh-keygen
+cd ~/.ss
+ls
+cat id_ed25519.pub
+nano main.tf 
+terraform init
+terraform validate
+terraform apply 
+ssh root@24.144.96.236
+***************************************************************************
+
+Comandos usados en la práctica #3:
+
+sudo apt install ansible -y
+mkdir -p /etc/ansible
+cd /etc/ansible
+sudo nano ansible.cfg
+nano hosts
+ssh-keygen -t rsa -b 4096
+cd ~/.ssh
+cat id_rsa.pub
+adduser ansible
+Usermod -aG sudo ansible
+chsh -s /bin/bash ansible
+su  ansible 
+cd
+mkdir ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+ansible Linux -m ping -u ansible
+ansible linux -m ping -u ansible
+ansible win -m win_ping
+***************************************************************************
+
+Comandos usados en la práctica #4:
+
+ansible win -i /etc/ansible/hosts -m win_shell -a "Move-Item -Path 'C:/Users/Lisa Marie Duran/Desktop/adhoc.txt' -Destination 'C:/Users/Lisa Marie Duran/Documents/'"
+ansible linux -i /etc/ansible/hosts -m reboot –become
+****************************************************************************
+
+Comandos usados en la prática #5:
+
+nano install_notepad.yml 
+ansible-playbook install_notepad.yml
+nano up_repos.yml
+ansible-playbook up_repos.yml
